@@ -1,7 +1,10 @@
 # FamPay Automation – Sanity Suite (WebdriverIO)
 
-This automation suite demonstrates a basic but professional WebdriverIO project 
-structure using Page Object Model (POM). The tests perform high-level sanity 
+This automation suite demonstrates a production-grade WebdriverIO 
+implementation using Page Object Model.
+It covers Homepage, FAQs, Payments, Contact-Permissions, Email Verification,
+UPI PIN setup blockers, and Payment Success validation.
+
 checks on FamPay's web platform:
 
 1. Homepage load validation

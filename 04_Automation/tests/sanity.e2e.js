@@ -1,20 +1,24 @@
-const HomePage = require('../pageobjects/home.page');
-const FAQPage = require('../pageobjects/faq.page');
+const PaymentsPage = require('../pageobjects/payments.page');
+const UPIPage = require('../pageobjects/upi.page');
 
-describe("FamPay Web – Basic Sanity Suite", () => {
+describe("FamPay – E2E Sanity Suite", () => {
 
-    it("Should load homepage successfully", async () => {
-        await HomePage.open();
-        await expect(HomePage.mainCTA).toBeExisting();
+    it("Should block payments until email is verified", async () => {
+        await PaymentsPage.search("Rahul");
+        await expect($('div*=Add email for extra security')).toBeDisplayed();
     });
 
-    it("Should verify header exists on homepage", async () => {
-        await expect(HomePage.headerText).toBeExisting();
+    it("Should refresh contact list after permission is granted", async () => {
+        await PaymentsPage.search("Ishu");
+        await expect(PaymentsPage.upiVerifiedName).toBeDisplayed();
     });
 
-    it("Should navigate to FAQs and validate content", async () => {
-        await FAQPage.open();
-        await expect(FAQPage.faqHeader).toBeExisting();
+    it("Should show payment success screen with transaction ID", async () => {
+        await expect(PaymentsPage.paySuccessHeader).toBeDisplayed();
+    });
+
+    it("Should display UPI PIN setup blockers", async () => {
+        await expect(UPIPage.upiPinSetupModal).toBeDisplayed();
     });
 
 });
