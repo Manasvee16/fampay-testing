@@ -1,4 +1,5 @@
 # FamPay Automation – Sanity Suite (WebdriverIO)
+**Author:** Manasvee Rathie
 
 This automation suite demonstrates a production-grade WebdriverIO 
 implementation using Page Object Model.
