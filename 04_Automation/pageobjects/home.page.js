@@ -1,15 +1,16 @@
 class HomePage {
 
-    get mainCTA() {
-        return $("button");
+    get headerLogo() { return $('img[alt="FamX"]'); }
+    get getVerifiedButton() { return $('button=Get Verified'); }
+    get menuButton() { return $('button[aria-label="Menu"]'); }
+
+    async open() {
+        await browser.url('/');
+        await browser.pause(500);
     }
 
-    get headerText() {
-        return $("h1");
-    }
-
-    open() {
-        return browser.url("https://get.fampay.in/");
+    async startKYC() {
+        await this.getVerifiedButton.click();
     }
 }
 
